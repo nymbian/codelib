@@ -8,8 +8,9 @@ class indexController {
 
 
     function actionIndex() {
-        global $_SGLOBAL;
-        var_export($_SGLOBAL);
+		$obj = L::loadClss('test');
+		$province = $obj->getRegion(1);
+        include_once template('views/test/index');
     }
 
 }
