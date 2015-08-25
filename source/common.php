@@ -10,8 +10,8 @@ define('S_ROOT', dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR);
 
 include_once(S_ROOT . './source/360_safe3.php');
 include_once(S_ROOT . './source/class_load.php');
-include_once(S_ROOT . './source//function_common.php');
-include_once(S_ROOT . './source//function_user.php');
+include_once(S_ROOT . './source/function_common.php');
+include_once(S_ROOT . './source/function_user.php');
 include_once(S_ROOT . './models/mysqlDBA.php');
 
 //时间
