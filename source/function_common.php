@@ -764,17 +764,17 @@ function redisInit() {
     return $obj;
 }
 
-function sphinxInit($serverId = 0) {
+function sphinxInit() {
     static $obj;
-    if (!isset($obj[$serverId])) {
+    if (!isset($obj)) {
         include_once(S_ROOT . '/models/sphinx.class.php');
         include_once(S_ROOT . '/config/sphinx.conf.php');
-        if (!isset($arrSphinxHost[$serverId])) {
+        if (!isset($arrSphinxHost)) {
             echo 'can\'t find this sphinx server';
             exit;
         }
-        $obj[$serverId] = new CL_sphinx;
-        $obj[$serverId]->connect($arrSphinxHost[$serverId]['host'], $arrSphinxHost[$serverId]['port']);
+        $obj = new CL_sphinx;
+        $obj->connect($arrSphinxHost['host'], $arrSphinxHost['port']);
     }
     return $obj[$serverId];
 }
