@@ -647,8 +647,7 @@ function csubstrs($str, $start = 0, $length, $charset = "utf-8", $suffix = true)
 }
 
 function _queryString($queryString) {
-    global $db_htmifopen;
-    if (empty($db_htmifopen))
+    if (!REWRITE_URL)
         return $queryString;
     $return = '';
     $self_array = false !== strpos($queryString, '&') ? array() : explode('-', $queryString);
