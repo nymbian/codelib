@@ -1,6 +1,6 @@
 <?php
 
-class CL_test extends mysqlDBA {
+class test extends mysqlDBA {
 
     var $intTotal = 0;
     var $intTotal2 = 0;
@@ -15,7 +15,7 @@ class CL_test extends mysqlDBA {
         }
 
         $sSql = "SELECT * FROM " . $this->testDB('region') . " WHERE 1=1 $strWhere ";
-        return $this->db->select($sSql, 'region_id');
+        return $this->db->get_all($sSql, 'region_id');
     }
 
 }

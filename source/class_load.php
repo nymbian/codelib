@@ -12,11 +12,11 @@ class L {
      * @param boolean $isGetInstance 是否实例化
      * @return mixed
      */
-    function loadClass($className, $dir = '', $isGetInstance = true) {
+    public static function loadClass($className, $dir = '', $isGetInstance = true) {
         return self::_loadClass($className, 'models/' . self::_formatDir($dir), $isGetInstance);
     }
 
-    function _loadClass($className, $dir = '', $isGetInstance = true, $classPrefix = 'CL_') {
+    public static function _loadClass($className, $dir = '', $isGetInstance = true) {
         static $classes = array();
         $dir = self::_formatDir($dir);
         $classToken = $isGetInstance ? $className : $dir . $className; //避免重名
@@ -29,7 +29,7 @@ class L {
         if (!$isGetInstance)
             return (require_once self::escapePath($fileDir)); //未实例化的直接返回
 
-        $class = $classPrefix . $className;
+        $class = $className;
         if (!class_exists($class)) {
             if (file_exists($fileDir))
                 require_once self::escapePath($fileDir);
@@ -43,7 +43,7 @@ class L {
         return $classes[$classToken];
     }
 
-    function _formatDir($dir) {
+    public static function _formatDir($dir) {
         $dir = trim($dir);
         if ($dir)
             $dir = trim($dir, "\\/") . '/';
@@ -56,7 +56,7 @@ class L {
      * @param $ifCheck
      * @return string
      */
-    function escapePath($fileName, $ifCheck = true) {
+    public static function escapePath($fileName, $ifCheck = true) {
         if (!self::_escapePath($fileName, $ifCheck)) {
             exit('Path Forbidden');
         }
@@ -69,7 +69,7 @@ class L {
      * @param $ifCheck
      * @return boolean
      */
-    function _escapePath($fileName, $ifCheck = true) {
+    public static function _escapePath($fileName, $ifCheck = true) {
         $tmpname = strtolower($fileName);
         $tmparray = array('://', "\0");
         $ifCheck && $tmparray[] = '..';
