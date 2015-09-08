@@ -1,6 +1,6 @@
 <?php
 
-define('IN_CL', TRUE);
+!defined('IN_CL') && exit('Forbidden');
 define('MAGIC_QUOTES_GPC', get_magic_quotes_gpc());
 D_BUG ? error_reporting(E_ALL ^ E_NOTICE) : error_reporting(0);
 header("Content-type: text/html; charset=utf-8");

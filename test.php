@@ -1,5 +1,5 @@
 <?php
-
+define('IN_CL', TRUE);
 define('D_BUG', 1); //debug模式
 define('SHOW_PAGE_TIME', 1); //输出页面执行时间
 define('SHOW_SQL', 1); //打印SQL

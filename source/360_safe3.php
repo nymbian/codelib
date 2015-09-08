@@ -1,5 +1,7 @@
 <?php
 
+!defined('IN_CL') && exit('Forbidden');
+
 //Code By Safe3 
 function customError($errno, $errstr, $errfile, $errline) {
     echo "<b>Error number:</b> [$errno],error on line $errline in $errfile<br />";
