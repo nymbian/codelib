@@ -42,8 +42,8 @@ function parse_template($tpl) {
     @$template = preg_replace("/\{else\}/is", "<?php } else { ?>", $template);
     //循环
     for ($i = 0; $i < 6; $i++) {
-        @$template = preg_replace("/\{loop\s+(\S+)\s+(\S+)\}(.+?)\{\/loop\}/ies", "stripvtags('<?php if(is_array(\\1)) { foreach(\\1 as \\2) { ?>','\\3<?php } } ?>')", $template);
-        @$template = preg_replace("/\{loop\s+(\S+)\s+(\S+)\s+(\S+)\}(.+?)\{\/loop\}/ies", "stripvtags('<?php if(is_array(\\1)) { foreach(\\1 as \\2 => \\3) { ?>','\\4<?php } } ?>')", $template);
+        @$template = preg_replace("/\{foreach\s+(\S+)\s+(\S+)\}(.+?)\{\/foreach\}/ies", "stripvtags('<?php if(is_array(\\1)) { foreach(\\1 as \\2) { ?>','\\3<?php } } ?>')", $template);
+        @$template = preg_replace("/\{foreach\s+(\S+)\s+(\S+)\s+(\S+)\}(.+?)\{\/foreach\}/ies", "stripvtags('<?php if(is_array(\\1)) { foreach(\\1 as \\2 => \\3) { ?>','\\4<?php } } ?>')", $template);
         @$template = preg_replace("/\{if\s+(.+?)\}(.+?)\{\/if\}/ies", "stripvtags('<?php if(\\1) { ?>','\\2<?php } ?>')", $template);
     }
     //常量
