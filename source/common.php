@@ -31,7 +31,7 @@ $_SGLOBAL['inajax'] = empty($_GET['inajax']) ? 0 : intval($_GET['inajax']);
 $_SGLOBAL['mobile'] = empty($_GET['mobile']) ? 0 : trim($_GET['mobile']);
 $_SGLOBAL['refer'] = empty($_SERVER['HTTP_REFERER']) ? '' : $_SERVER['HTTP_REFERER'];
 require_once(S_ROOT . "./config/global.conf.php"); //全局数组
-if(file_exists(S_ROOT . "./config/app/" . APP . ".conf.php")) {
+if (file_exists(S_ROOT . "./config/app/" . APP . ".conf.php")) {
     require_once(S_ROOT . "./config/app/" . APP . ".conf.php"); //APP全局数组
 }
 if (REWRITE_URL) {
@@ -40,4 +40,6 @@ if (REWRITE_URL) {
     $_SGLOBAL['query_string'] = _queryString($_SGLOBAL['query_string']);
 }
 dbconnect(APP); //连接数据库
+loadController($arrController, APP);
+$_SGLOBAL['memory'] = memory_get_usage();
 ?>
